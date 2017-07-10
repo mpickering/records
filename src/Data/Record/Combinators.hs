@@ -1,4 +1,6 @@
+{-# LANGUAGE PackageImports #-}
 -- |Record combinators built on top of the record core that "Data.Record" provides.
+
 module Data.Record.Combinators (
 
     -- * Record styles
@@ -37,7 +39,7 @@ module Data.Record.Combinators (
     import qualified Prelude -- only for documentation
 
     -- Data
-    import Data.Kind    as Kind
+    import "kinds" Data.Kind    as Kind
     import Data.TypeFun as TypeFun
     import Data.Record  as Record
 
@@ -162,6 +164,7 @@ X :& Surname := \"Jeltsch\" :& Age := 33 :& Room := \"HG/2.39\" \`withStyle\` 'I
     repeatNilAlt :: (TypeFun style) => RepeatThing style X
     repeatNilAlt = RepeatThing nilRepeat where
 
+        nilRepeat :: Universal style -> X style
         nilRepeat _ = X
 
     repeatSnocAlt :: forall style rec name sort. (TypeFun style,

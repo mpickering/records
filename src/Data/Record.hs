@@ -1,4 +1,5 @@
 -- |Record core support.
+{-# LANGUAGE PackageImports #-}
 module Data.Record (
 
     -- * Record basics
@@ -19,7 +20,7 @@ module Data.Record (
 
 ) where
 
-    import Data.Kind    as Kind
+    import "kinds" Data.Kind    as Kind
     import Data.TypeFun as TypeFun
 
     -- * Record basics
